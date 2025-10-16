@@ -12,12 +12,20 @@
         <th>Id</th>
         <th>Title</th>
         <th>Publication date</th>
+        <th>Modifier</th>
+        <th>Supprimer</th>
     </tr>
     @foreach($articles as $article)
         <tr>
             <td>{{ $article->id }}</td>
             <td><a href="/articles/{{ $article->id }}"> {{ $article->title }}</a></td>
             <td>{{ $article->published_at }}</td>
+            <td><a href="/articles/{{ $article->id }}/edit">Modifier</a></td>
+            <td><form action="/articles/{{ $article->id }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button>Supprimer</button>
+                </form></td>
         </tr>
     @endforeach
 </table>
