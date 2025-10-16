@@ -16,6 +16,8 @@ Route::get('/home', function () {
     ]);
 });
 
+
+
 Route::get('/articles', function() {
     // récupère tous les articles
     $articles = Article::all();
@@ -35,6 +37,13 @@ Route::get('/articles/{id}', function($id) {
 });
 
 Route::post('/articles', function() {
+    // valider les données
+    request()->validate([
+        'title' => 'required|min:5|max:50',
+        'content' => 'required',
+    ]);
+
+    // données validées
     $a = new Article;
     $a->title = request('title');
     $a->content = request('content');
