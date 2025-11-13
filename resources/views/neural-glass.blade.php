@@ -74,7 +74,19 @@
         </a>
         <ul class="nav-links">
             <li><a href="/articles/create">Créer</a></li>
+
+            @auth
+                {{--        Si connecté : affiche le nom--}}
+                <li>{{ Auth::user()->name }}</li>
+                <li><a href="/logout" class="login-button">Se déconnecter</a></li>
+            @else
+                {{--        Sinon : bouton se connecter--}}
+                <li><a href="/login" class="login-button">Se connecter</a></li>
+            @endauth
         </ul>
+
+
+
         <div class="mobile-menu-toggle">
             <div class="hamburger-line"></div>
             <div class="hamburger-line"></div>
