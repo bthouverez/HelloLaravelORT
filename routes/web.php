@@ -28,8 +28,14 @@ Route::get('/home', function () {
     ]);
 });
 
-Route::resource('articles', ArticleController::class);
-
+//Route::resource('articles', ArticleController::class);
+Route::get('/articles', [ArticleController::class, 'index']);
+Route::get('/articles/create', [ArticleController::class, 'create'])->middleware('isConnected');
+Route::get('/articles/{article}', [ArticleController::class, 'show']);
+Route::post('/articles', [ArticleController::class, 'store'])->middleware('isConnected');
+Route::get('/articles/{article}/edit', [ArticleController::class, 'edit']);
+Route::patch('/articles/{article}', [ArticleController::class, 'update']);
+Route::delete('/articles/{article}', [ArticleController::class, 'destroy']);
 
 Route::get('/test', function() {
     return view('neural-glass');
