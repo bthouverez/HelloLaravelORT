@@ -8,6 +8,7 @@
     <p>Date publication : {{ $article->published_at }}</p>
     <p>Contenu : {{ $article->content }}</p>
     <p>Image : {{ $article->picture }}</p>
+    <p><img src="{{ $article->picture }}" alt="image"></p>
     <p>Date création : {{ $article->created_at }}</p>
     <p>Date de mise à jour : {{ $article->updated_at }}</p>
 
