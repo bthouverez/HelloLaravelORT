@@ -5,6 +5,16 @@
 @section('main')
     <h1>Un seul article : {{ $article->id }}</h1>
     <p>Titre : {{ $article->title }}</p>
+    <p>Author : {{ $article->user->name }}</p>
+    <p>Tags :
+    <ul>
+        @forelse($article->tags as $tag)
+            <li>{{ $tag->name }}</li>
+        @empty
+            Aucun tag
+        @endforelse
+    </ul>
+    </p>
     <p>Date publication : {{ $article->published_at }}</p>
     <p>Contenu : {{ $article->content }}</p>
     <p>Image : {{ $article->picture }}</p>
