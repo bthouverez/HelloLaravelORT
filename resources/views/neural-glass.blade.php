@@ -70,42 +70,28 @@
                     <animate attributeName="opacity" values="0.6;1;0.6" dur="2.8s" repeatCount="indefinite"/>
                 </line>
             </svg>
-            MySuperBlog
+            {{ __('MonSuperBlog') }}
+
         </a>
         <ul class="nav-links">
-            <li><a href="/articles/create">Créer</a></li>
+            <li><a href="/articles/create">{{ __('Créer') }}</a></li>
 
             @auth
                 {{--        Si connecté : affiche le nom--}}
                 <li>{{ Auth::user()->name }}</li>
-                <li><a href="/logout" class="login-button">Se déconnecter</a></li>
+                <li><a href="/logout" class="login-button">{{ __('Se déconnecter') }}</a></li>
             @else
                 {{--        Sinon : bouton se connecter--}}
-                <li><a href="/login" class="login-button">Se connecter</a></li>
+                <li><a href="/login" class="login-button">{{ __('Se connecter') }}</a></li>
             @endauth
         </ul>
-
-
-
-        <div class="mobile-menu-toggle">
-            <div class="hamburger-line"></div>
-            <div class="hamburger-line"></div>
-            <div class="hamburger-line"></div>
-        </div>
     </nav>
-    <div class="mobile-nav">
-        <a href="#features">Neural</a>
-        <a href="#showcase">Matrix</a>
-        <a href="#timeline">Evolution</a>
-        <a href="#contact">Connect</a>
-        <a href="https://example.com" target="_blank" class="external-link">External</a>
-    </div>
 </header>
 
 <!-- Section 1: Hero -->
 <section class="hero" id="home">
     <div class="hero-content">
-        <div class="hero-subtitle">Welcome to the Future</div>
+        <div class="hero-subtitle">{{ __('Bienvenue dans le Futur') }}</div>
         <h1>@yield('title')</h1>
     </div>
 </section>

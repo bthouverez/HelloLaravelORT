@@ -1,9 +1,9 @@
 @extends('neural-glass')
 
-@section('title', 'Tous les articles')
+@section('title',  __('Tous les articles'))
 
 @section('main')
-    <h1>Tous les articles</h1>
+    <h1>{{ __('Tous les articles') }}</h1>
     <table class="table  table-striped">
         <tr>
             <th>ID</th>

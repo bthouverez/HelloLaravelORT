@@ -3,8 +3,11 @@
 use App\Http\Controllers\ArticleController;
 use App\Models\Article;
 use App\Models\User;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
+
 
 Route::get('/login', function() {
     Auth::login(User::find(23));
@@ -38,5 +41,5 @@ Route::patch('/articles/{article}', [ArticleController::class, 'update']);
 Route::delete('/articles/{article}', [ArticleController::class, 'destroy']);
 
 Route::get('/test', function() {
-    return view('neural-glass');
+    dd(App::currentLocale());
 });
